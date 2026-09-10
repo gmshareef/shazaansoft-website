@@ -1,635 +1,1555 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jamaath Care — One Digital Solution for Your Jamaath | Shazaan Software Solutions</title>
-<meta name="description" content="Jamaath Care is an all-in-one digital management system for mosque and Jamaath committees — financial records, madarasa students, rental assets, family records and community events, all in one secure, offline-capable app.">
-<meta property="og:title" content="Jamaath Care — One Digital Solution for Your Jamaath">
-<meta property="og:description" content="Finance, Madarasa, Assets & Community management — all in one secure, offline-capable app for mosque and Jamaath committees.">
+<title>ShazaanSoft | Jamaath Care</title>
+<meta name="description"
+content="ShazaanSoft builds Jamaath Care, an all-in-one digital management system for mosque and Jamaath committees — finance, Madrasa, rental assets, family records and community events, all in one secure app.">
+<meta property="og:title" content="ShazaanSoft | Jamaath Care">
+<meta property="og:description"
+content="ShazaanSoft brings you Jamaath Care — finance, Madrasa, assets and community management in one secure, offline-capable app.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%236366f1'/%3E%3Cpath d='M16 46h32v4H16z' fill='white'/%3E%3Crect x='18' y='38' width='28' height='8' fill='white'/%3E%3Cpath d='M23 38c0-6.5 4-12 9-12s9 5.5 9 12' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Ccircle cx='110' cy='110' r='96' fill='%23044f4a'/%3E%3Ccircle cx='110' cy='110' r='84' fill='none' stroke='%23d8b15a' stroke-width='12'/%3E%3Cpath d='M64 72c0-14 12-26 29-26h42c19 0 31 16 31 31 0 19-18 27-31 31l-25 7c-12 3-25 10-25 24 0 16 14 28 31 28h25c17 0 31-12 31-29' fill='none' stroke='%23d8b15a' stroke-width='12' stroke-linecap='round'/%3E%3Cpath d='M90 76c25-20 64-17 77 15' fill='none' stroke='%23d8b15a' stroke-width='12' stroke-linecap='round'/%3E%3Cpath d='M68 161c11 17 32 27 58 27 35 0 60-19 69-46' fill='none' stroke='%23d8b15a' stroke-width='12' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+rel="stylesheet">
 <style>
-  :root{
-    --emerald-600:#059669;
-    --emerald-500:#10b981;
-    --emerald-50:#ecfdf5;
-    --indigo-600:#6366f1;
-    --violet-600:#7c3aed;
-    --slate-900:#0f172a;
-    --slate-700:#334155;
-    --slate-500:#64748b;
-    --slate-300:#cbd5e1;
-    --slate-200:#e2e8f0;
-    --slate-100:#f1f5f9;
-    --slate-50:#f8fafc;
-    --white:#ffffff;
-    --amber-500:#f59e0b;
-    --rose-500:#f43f5e;
-    --radius-lg:1.5rem;
-    --radius-md:1rem;
-    --radius-sm:0.75rem;
-    --shadow-soft:0 20px 45px -20px rgba(15,23,42,0.22);
-    --shadow-tight:0 8px 20px -10px rgba(15,23,42,0.18);
-    --font-display:'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    --font-body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  }
+:root {
+--emerald-600: #059669;
+--emerald-500: #10b981;
+--emerald-50: #ecfdf5;
+--indigo-600: #6366f1;
+--violet-600: #7c3aed;
+--slate-900: #0f172a;
+--slate-700: #334155;
+--slate-500: #64748b;
+--slate-300: #cbd5e1;
+--slate-200: #e2e8f0;
+--slate-100: #f1f5f9;
+--slate-50: #f8fafc;
+--white: #ffffff;
+--amber-500: #f59e0b;
+--rose-500: #f43f5e;
+--radius-lg: 1.5rem;
+--radius-md: 1rem;
+--radius-sm: 0.75rem;
+--shadow-soft: 0 20px 45px -20px rgba(15, 23, 42, 0.22);
+--shadow-tight: 0 8px 20px -10px rgba(15, 23, 42, 0.18);
+--font-display: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+--font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
 
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:var(--font-body);
-    color:var(--slate-700);
-    background:var(--white);
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  img,svg{display:block;max-width:100%;}
-  a{color:inherit;text-decoration:none;}
-  ul{list-style:none;}
-  h1,h2,h3,h4{font-family:var(--font-display);color:var(--slate-900);line-height:1.15;}
-  .container{width:100%;max-width:1160px;margin:0 auto;padding:0 24px;}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:var(--font-display);font-weight:800;font-size:11px;
-    letter-spacing:0.14em;text-transform:uppercase;color:var(--emerald-600);
-    background:var(--emerald-50);border:1px solid #d1fae5;
-    padding:6px 14px;border-radius:999px;
-  }
-  .grad-text{
-    background:linear-gradient(100deg, var(--emerald-600), var(--indigo-600) 65%, var(--violet-600));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
 
-  /* ---------- Buttons ---------- */
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:10px;
-    font-family:var(--font-display);font-weight:700;font-size:14.5px;
-    padding:14px 26px;border-radius:999px;border:2px solid transparent;
-    cursor:pointer;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-    white-space:nowrap;
-  }
-  .btn-primary{
-    background:linear-gradient(100deg, var(--emerald-600), var(--emerald-500));
-    color:var(--white);box-shadow:0 14px 30px -12px rgba(5,150,105,0.55);
-  }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(5,150,105,0.65);}
-  .btn-outline{
-    background:var(--white);color:var(--slate-900);border-color:var(--slate-200);
-  }
-  .btn-outline:hover{border-color:var(--slate-900);transform:translateY(-2px);}
-  .btn-ghost{ color:var(--slate-700); }
-  .btn svg{width:18px;height:18px;flex-shrink:0;}
-  .btn-sm{padding:10px 18px;font-size:13px;}
+html {
+scroll-behavior: smooth;
+}
 
-  /* ---------- Nav ---------- */
-  header{
-    position:sticky;top:0;z-index:100;
-    background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--slate-100);
-  }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px;}
-  .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:19px;color:var(--slate-900);}
-  .brand .logo-mark{width:38px;height:38px;flex-shrink:0;}
-  .nav-links{display:flex;align-items:center;gap:36px;}
-  .nav-links a{
-    font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--slate-700);
-    transition:color .15s ease;
-  }
-  .nav-links a:hover{color:var(--emerald-600);}
-  .nav-actions{display:flex;align-items:center;gap:14px;}
-  .hamburger{
-    display:none;flex-direction:column;justify-content:center;gap:5px;
-    width:40px;height:40px;border:1px solid var(--slate-200);border-radius:10px;
-    background:var(--white);cursor:pointer;
-  }
-  .hamburger span{display:block;width:18px;height:2px;background:var(--slate-900);margin:0 auto;transition:transform .2s ease, opacity .2s ease;}
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .hamburger.open span:nth-child(2){opacity:0;}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  .mobile-panel{
-    display:none;flex-direction:column;gap:4px;
-    padding:16px 24px 24px;border-top:1px solid var(--slate-100);
-    background:var(--white);
-  }
-  .mobile-panel.open{display:flex;}
-  .mobile-panel a{
-    font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--slate-800);
-    padding:12px 4px;border-bottom:1px solid var(--slate-100);
-  }
-  .mobile-panel .btn{margin-top:12px;width:100%;}
+body {
+font-family: var(--font-body);
+color: var(--slate-700);
+background: var(--white);
+line-height: 1.55;
+-webkit-font-smoothing: antialiased;
+overflow-x: hidden;
+}
 
-  /* ---------- Hero ---------- */
-  .hero{position:relative;padding:76px 0 90px;overflow:hidden;}
-  .hero::before{
-    content:'';position:absolute;top:-160px;right:-160px;width:520px;height:520px;border-radius:50%;
-    background:radial-gradient(circle, rgba(99,102,241,0.14), transparent 70%);pointer-events:none;
-  }
-  .hero::after{
-    content:'';position:absolute;bottom:-200px;left:-160px;width:480px;height:480px;border-radius:50%;
-    background:radial-gradient(circle, rgba(16,185,129,0.14), transparent 70%);pointer-events:none;
-  }
-  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;position:relative;z-index:1;}
-  .hero h1{font-size:clamp(32px, 4.2vw, 50px);font-weight:800;letter-spacing:-0.01em;margin:20px 0 22px;}
-  .hero p.lead{font-size:17px;color:var(--slate-500);max-width:520px;margin-bottom:32px;}
-  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;}
-  .hero-note{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--slate-500);font-weight:500;}
-  .hero-note svg{width:16px;height:16px;color:var(--emerald-600);flex-shrink:0;}
+img,
+svg {
+display: block;
+max-width: 100%;
+}
 
-  /* ---------- Hero mockup panel ---------- */
-  .mock-window{
-    background:var(--white);border-radius:22px;box-shadow:var(--shadow-soft);
-    border:1px solid var(--slate-100);overflow:hidden;transform:rotate(1.2deg);
-  }
-  .mock-topbar{
-    display:flex;align-items:center;gap:6px;padding:14px 18px;
-    background:linear-gradient(100deg, var(--slate-900), #1e293b);
-  }
-  .mock-topbar span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.25);}
-  .mock-topbar span:nth-child(1){background:#f87171;}
-  .mock-topbar span:nth-child(2){background:#fbbf24;}
-  .mock-topbar span:nth-child(3){background:#34d399;}
-  .mock-body{padding:22px;}
-  .mock-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;}
-  .mock-stat{
-    background:var(--slate-50);border:1px solid var(--slate-100);border-radius:14px;padding:14px 12px;
-  }
-  .mock-stat .mock-label{display:block;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--slate-500);margin-bottom:6px;}
-  .mock-stat .mock-value{display:block;font-family:var(--font-display);font-weight:800;font-size:17px;color:var(--slate-900);}
-  .mock-stat.accent-emerald .mock-value{color:var(--emerald-600);}
-  .mock-stat.accent-indigo .mock-value{color:var(--indigo-600);}
-  .mock-chart{
-    background:var(--slate-50);border:1px solid var(--slate-100);border-radius:14px;
-    padding:18px 16px 14px;display:flex;align-items:flex-end;gap:8px;height:120px;
-  }
-  .mock-chart span{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg, var(--emerald-500), var(--emerald-600));}
-  .mock-chart span:nth-child(2){background:linear-gradient(180deg, var(--indigo-600), var(--violet-600));}
-  .mock-chart span:nth-child(5){background:linear-gradient(180deg, var(--indigo-600), var(--violet-600));}
-  .mock-rows{margin-top:16px;display:flex;flex-direction:column;gap:8px;}
-  .mock-row{display:flex;align-items:center;justify-content:space-between;background:var(--slate-50);border:1px solid var(--slate-100);border-radius:10px;padding:10px 12px;font-size:12px;font-weight:600;color:var(--slate-700);}
-  .mock-row .pill{font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;}
-  .pill-paid{background:var(--emerald-50);color:var(--emerald-600);}
-  .pill-pending{background:#fffbeb;color:var(--amber-500);}
+a {
+color: inherit;
+text-decoration: none;
+}
 
-  /* ---------- Section shell ---------- */
-  section{padding:88px 0;}
-  .section-head{max-width:640px;margin:0 auto 52px;text-align:center;}
-  .section-head h2{font-size:clamp(26px,3.2vw,36px);font-weight:800;margin:16px 0 14px;letter-spacing:-0.01em;}
-  .section-head p{color:var(--slate-500);font-size:15.5px;}
+ul {
+list-style: none;
+}
 
-  /* ---------- Problem/Solution strip ---------- */
-  .problem-strip{background:var(--slate-900);color:var(--white);}
-  .problem-strip .section-head h2{color:var(--white);}
-  .problem-strip .section-head p{color:var(--slate-300);}
-  .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .problem-card{
-    background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
-    border-radius:var(--radius-md);padding:28px 24px;
-  }
-  .problem-card .tag{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fca5a5;margin-bottom:12px;display:block;}
-  .problem-card h3{color:var(--white);font-size:17px;font-weight:700;margin-bottom:10px;}
-  .problem-card p{color:var(--slate-300);font-size:14px;}
-  .problem-card .arrow{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;font-weight:700;color:var(--emerald-400,#34d399);}
-  .problem-card .arrow svg{width:16px;height:16px;}
+h1,
+h2,
+h3,
+h4 {
+font-family: var(--font-display);
+color: var(--slate-900);
+line-height: 1.15;
+}
 
-  /* ---------- Features grid ---------- */
-  .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-  .feature-card{
-    border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:26px 22px;
-    background:var(--white);transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  }
-  .feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-tight);border-color:var(--slate-200);}
-  .feature-icon{
-    width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
-    margin-bottom:16px;color:var(--white);
-  }
-  .feature-icon svg{width:22px;height:22px;}
-  .feature-card h3{font-size:15.5px;font-weight:700;margin-bottom:8px;}
-  .feature-card p{font-size:13.5px;color:var(--slate-500);}
-  .icon-emerald{background:linear-gradient(140deg, var(--emerald-500), var(--emerald-600));}
-  .icon-indigo{background:linear-gradient(140deg, var(--indigo-600), #4f46e5);}
-  .icon-violet{background:linear-gradient(140deg, var(--violet-600), #6d28d9);}
-  .icon-amber{background:linear-gradient(140deg, #fbbf24, var(--amber-500));}
-  .icon-rose{background:linear-gradient(140deg, #fb7185, var(--rose-500));}
-  .icon-slate{background:linear-gradient(140deg, #334155, var(--slate-900));}
+.container {
+width: 100%;
+max-width: 1160px;
+margin: 0 auto;
+padding: 0 24px;
+}
 
-  /* ---------- Why section ---------- */
-  .why-section{background:var(--slate-50);}
-  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
-  .why-card{background:var(--white);border:1px solid var(--slate-100);border-radius:var(--radius-md);padding:26px 22px;box-shadow:var(--shadow-tight);}
-  .why-card .num{
-    font-family:var(--font-display);font-weight:900;font-size:13px;color:var(--white);
-    background:linear-gradient(140deg, var(--emerald-500), var(--indigo-600));
-    width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;
-  }
-  .why-card h3{font-size:15.5px;font-weight:700;margin-bottom:8px;}
-  .why-card p{font-size:13.5px;color:var(--slate-500);}
+.eyebrow {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+font-family: var(--font-display);
+font-weight: 800;
+font-size: 11px;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(--emerald-600);
+background: var(--emerald-50);
+border: 1px solid #d1fae5;
+padding: 6px 14px;
+border-radius: 999px;
+}
 
-  /* ---------- CTA band ---------- */
-  .cta-band{
-    background:linear-gradient(115deg, var(--slate-900) 0%, #1e1b4b 55%, #312e81 100%);
-    border-radius:28px;padding:64px 48px;text-align:center;position:relative;overflow:hidden;
-  }
-  .cta-band::before{
-    content:'';position:absolute;inset:0;
-    background:radial-gradient(circle at 20% 20%, rgba(16,185,129,0.25), transparent 45%),
-               radial-gradient(circle at 80% 80%, rgba(99,102,241,0.3), transparent 45%);
-  }
-  .cta-band > *{position:relative;z-index:1;}
-  .cta-band h2{color:var(--white);font-size:clamp(24px,3.4vw,34px);margin-bottom:14px;}
-  .cta-band p{color:var(--slate-300);max-width:520px;margin:0 auto 30px;font-size:15.5px;}
-  .cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
-  .cta-band .btn-outline{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.25);}
-  .cta-band .btn-outline:hover{border-color:var(--white);}
-  .cta-contact-note{margin-top:22px;font-size:13px;color:var(--slate-400,#94a3b8);}
-  .cta-contact-note a{text-decoration:underline;text-underline-offset:3px;}
+.grad-text {
+background: linear-gradient(100deg, var(--emerald-600), var(--indigo-600) 65%, var(--violet-600));
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+}
 
-  /* ---------- Footer ---------- */
-  footer{border-top:1px solid var(--slate-100);padding:48px 0 32px;}
-  .footer-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:32px;}
-  .footer-brand .brand{margin-bottom:10px;}
-  .footer-brand p{font-size:13.5px;color:var(--slate-500);max-width:320px;}
-  .footer-links{display:flex;gap:56px;flex-wrap:wrap;}
-  .footer-col h4{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--slate-900);margin-bottom:14px;}
-  .footer-col a{display:block;font-size:13.5px;color:var(--slate-500);margin-bottom:10px;transition:color .15s ease;}
-  .footer-col a:hover{color:var(--emerald-600);}
-  .footer-bottom{
-    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
-    padding-top:24px;border-top:1px solid var(--slate-100);font-size:12.5px;color:var(--slate-500);
-  }
-  .footer-bottom .credit{font-weight:600;color:var(--slate-700);}
+/* ---------- Buttons ---------- */
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+font-family: var(--font-display);
+font-weight: 700;
+font-size: 14.5px;
+padding: 14px 26px;
+border-radius: 999px;
+border: 2px solid transparent;
+cursor: pointer;
+transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+white-space: nowrap;
+}
 
-  /* ---------- Responsive ---------- */
-  @media (max-width: 980px){
-    .hero-grid{grid-template-columns:1fr;}
-    .hero-visual{order:-1;}
-    .mock-window{transform:none;max-width:460px;margin:0 auto;}
-    .features-grid{grid-template-columns:repeat(2,1fr);}
-    .why-grid{grid-template-columns:repeat(2,1fr);}
-    .problem-grid{grid-template-columns:1fr;}
-  }
-  @media (max-width: 760px){
-    .nav-links{display:none;}
-    .nav-actions .btn{display:none;}
-    .hamburger{display:flex;}
-    .hero{padding:48px 0 64px;}
-    section{padding:64px 0;}
-    .cta-band{padding:44px 24px;border-radius:22px;}
-    .footer-top{flex-direction:column;}
-    .footer-links{gap:32px;}
-  }
-  @media (max-width: 560px){
-    .features-grid{grid-template-columns:1fr;}
-    .why-grid{grid-template-columns:1fr;}
-    .mock-stats{grid-template-columns:1fr 1fr 1fr;gap:8px;}
-    .mock-stat{padding:10px 8px;}
-    .mock-stat .mock-value{font-size:14px;}
-    .hero-ctas .btn{flex:1;}
-  }
+.btn-primary {
+background: linear-gradient(100deg, var(--emerald-600), var(--emerald-500));
+color: var(--white);
+box-shadow: 0 14px 30px -12px rgba(5, 150, 105, 0.55);
+}
+
+.btn-primary:hover {
+transform: translateY(-2px);
+box-shadow: 0 18px 34px -12px rgba(5, 150, 105, 0.65);
+}
+
+.btn-outline {
+background: var(--white);
+color: var(--slate-900);
+border-color: var(--slate-200);
+}
+
+.btn-outline:hover {
+border-color: var(--slate-900);
+transform: translateY(-2px);
+}
+
+.btn-ghost {
+color: var(--slate-700);
+}
+
+.btn svg {
+width: 18px;
+height: 18px;
+flex-shrink: 0;
+}
+
+.btn-sm {
+padding: 10px 18px;
+font-size: 13px;
+}
+
+/* ---------- Nav ---------- */
+header {
+position: sticky;
+top: 0;
+z-index: 100;
+background: var(--white);
+border-bottom: 1px solid var(--slate-100);
+}
+
+.nav-inner {
+display: flex;
+align-items: center;
+justify-content: space-between;
+min-height: 72px;
+padding: 8px 0;
+}
+
+.brand {
+display: flex;
+align-items: center;
+gap: 10px;
+font-family: var(--font-display);
+font-weight: 800;
+font-size: 19px;
+color: var(--slate-900);
+}
+
+.brand .logo-mark {
+width: 38px;
+height: 38px;
+flex-shrink: 0;
+}
+
+.company-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.company-logo {
+  width: 170px;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  filter: brightness(1.01) saturate(0.99);
+  box-shadow: none;
+  opacity: 0.99;
+}
+
+.company-wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.8;
+}
+
+.company-wordmark .brand-primary {
+  font-size: clamp(1.55rem, 3vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #0d5d54;
+}
+
+.company-wordmark .brand-secondary {
+  font-size: clamp(1.55rem, 3vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #0d5d54;
+}
+
+.company-wordmark .brand-product {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c9952f;
+  font-weight: 800;
+}
+
+.logo-showcase {
+  padding: 26px 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f4f4;
+}
+
+.logo-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.logo-badge {
+  width: min(62vw, 620px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 18px rgba(8, 75, 68, 0.10));
+}
+
+.logo-wordmark {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.02em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #0d5d54;
+  line-height: 0.8;
+  text-transform: uppercase;
+}
+
+.logo-wordmark .word-main,
+.logo-wordmark .word-sub {
+  font-size: clamp(3.2rem, 7vw, 9rem);
+  display: inline-block;
+}
+
+.logo-wordmark .word-main {
+  color: #0b5d52;
+}
+
+.logo-wordmark .word-sub {
+  color: #0b5d52;
+}
+
+.logo-tagline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(82vw, 980px);
+  margin-top: 4px;
+  color: #c9972b;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2vw, 2.6rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.logo-tagline::before,
+.logo-tagline::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 24%;
+  min-width: 70px;
+  background: linear-gradient(90deg, transparent 0%, #b8841d 18%, #d5ad4f 50%, #b8841d 82%, transparent 100%);
+}
+
+.logo-tagline::before { margin-right: 20px; }
+.logo-tagline::after { margin-left: 20px; }
+
+.nav-links {
+display: flex;
+align-items: center;
+gap: 36px;
+}
+
+.nav-links a {
+font-family: var(--font-display);
+font-weight: 600;
+font-size: 14px;
+color: var(--slate-700);
+transition: color .15s ease;
+}
+
+.nav-links a:hover {
+color: var(--emerald-600);
+}
+
+.nav-actions {
+display: flex;
+align-items: center;
+gap: 14px;
+}
+
+.hamburger {
+display: none;
+flex-direction: column;
+justify-content: center;
+gap: 5px;
+width: 40px;
+height: 40px;
+border: 1px solid var(--slate-200);
+border-radius: 10px;
+background: var(--white);
+cursor: pointer;
+}
+
+.hamburger span {
+display: block;
+width: 18px;
+height: 2px;
+background: var(--slate-900);
+margin: 0 auto;
+transition: transform .2s ease, opacity .2s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-panel {
+display: none;
+flex-direction: column;
+gap: 4px;
+padding: 16px 24px 24px;
+border-top: 1px solid var(--slate-100);
+background: var(--white);
+}
+
+.mobile-panel.open {
+display: flex;
+}
+
+.mobile-panel a {
+font-family: var(--font-display);
+font-weight: 600;
+font-size: 15px;
+color: var(--slate-800);
+padding: 12px 4px;
+border-bottom: 1px solid var(--slate-100);
+}
+
+.mobile-panel .btn {
+margin-top: 12px;
+width: 100%;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+position: relative;
+padding: 76px 0 90px;
+overflow: hidden;
+}
+
+.hero::before {
+content: '';
+position: absolute;
+top: -160px;
+right: -160px;
+width: 520px;
+height: 520px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(99, 102, 241, 0.14), transparent 70%);
+pointer-events: none;
+}
+
+.hero::after {
+content: '';
+position: absolute;
+bottom: -200px;
+left: -160px;
+width: 480px;
+height: 480px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(16, 185, 129, 0.14), transparent 70%);
+pointer-events: none;
+}
+
+.hero-grid {
+display: grid;
+grid-template-columns: 1.05fr 0.95fr;
+gap: 56px;
+align-items: center;
+position: relative;
+z-index: 1;
+}
+
+.hero h1 {
+font-size: clamp(32px, 4.2vw, 50px);
+font-weight: 800;
+letter-spacing: -0.01em;
+margin: 20px 0 22px;
+}
+
+.product-byline {
+font-family: var(--font-display);
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 0.04em;
+color: var(--emerald-600);
+margin-top: 18px;
+}
+
+.hero p.lead {
+font-size: 17px;
+color: var(--slate-500);
+max-width: 520px;
+margin-bottom: 32px;
+}
+
+.hero-ctas {
+display: flex;
+flex-wrap: wrap;
+gap: 14px;
+margin-bottom: 28px;
+}
+
+.hero-note {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 13px;
+color: var(--slate-500);
+font-weight: 500;
+}
+
+.hero-note svg {
+width: 16px;
+height: 16px;
+color: var(--emerald-600);
+flex-shrink: 0;
+}
+
+/* ---------- Hero mockup panel ---------- */
+.mock-window {
+background: var(--white);
+border-radius: 22px;
+box-shadow: var(--shadow-soft);
+border: 1px solid var(--slate-100);
+overflow: hidden;
+transform: rotate(1.2deg);
+}
+
+.mock-topbar {
+display: flex;
+align-items: center;
+gap: 6px;
+padding: 14px 18px;
+background: linear-gradient(100deg, var(--slate-900), #1e293b);
+}
+
+.mock-topbar span {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.25);
+}
+
+.mock-topbar span:nth-child(1) {
+background: #f87171;
+}
+
+.mock-topbar span:nth-child(2) {
+background: #fbbf24;
+}
+
+.mock-topbar span:nth-child(3) {
+background: #34d399;
+}
+
+.mock-body {
+padding: 22px;
+}
+
+.mock-stats {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 12px;
+margin-bottom: 20px;
+}
+
+.mock-stat {
+background: var(--slate-50);
+border: 1px solid var(--slate-100);
+border-radius: 14px;
+padding: 14px 12px;
+}
+
+.mock-stat .mock-label {
+display: block;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: var(--slate-500);
+margin-bottom: 6px;
+}
+
+.mock-stat .mock-value {
+display: block;
+font-family: var(--font-display);
+font-weight: 800;
+font-size: 17px;
+color: var(--slate-900);
+}
+
+.mock-stat.accent-emerald .mock-value {
+color: var(--emerald-600);
+}
+
+.mock-stat.accent-indigo .mock-value {
+color: var(--indigo-600);
+}
+
+.mock-chart {
+background: var(--slate-50);
+border: 1px solid var(--slate-100);
+border-radius: 14px;
+padding: 18px 16px 14px;
+display: flex;
+align-items: flex-end;
+gap: 8px;
+height: 120px;
+}
+
+.mock-chart span {
+flex: 1;
+border-radius: 6px 6px 2px 2px;
+background: linear-gradient(180deg, var(--emerald-500), var(--emerald-600));
+}
+
+.mock-chart span:nth-child(2) {
+background: linear-gradient(180deg, var(--indigo-600), var(--violet-600));
+}
+
+.mock-chart span:nth-child(5) {
+background: linear-gradient(180deg, var(--indigo-600), var(--violet-600));
+}
+
+.mock-rows {
+margin-top: 16px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.mock-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: var(--slate-50);
+border: 1px solid var(--slate-100);
+border-radius: 10px;
+padding: 10px 12px;
+font-size: 12px;
+font-weight: 600;
+color: var(--slate-700);
+}
+
+.mock-row .pill {
+font-size: 10px;
+font-weight: 800;
+letter-spacing: .05em;
+text-transform: uppercase;
+padding: 3px 9px;
+border-radius: 999px;
+}
+
+.pill-paid {
+background: var(--emerald-50);
+color: var(--emerald-600);
+}
+
+.pill-pending {
+background: #fffbeb;
+color: var(--amber-500);
+}
+
+/* ---------- Section shell ---------- */
+section {
+padding: 88px 0;
+}
+
+.section-head {
+max-width: 640px;
+margin: 0 auto 52px;
+text-align: center;
+}
+
+.section-head h2 {
+font-size: clamp(26px, 3.2vw, 36px);
+font-weight: 800;
+margin: 16px 0 14px;
+letter-spacing: -0.01em;
+}
+
+.section-head p {
+color: var(--slate-500);
+font-size: 15.5px;
+}
+
+/* ---------- Problem/Solution strip ---------- */
+.problem-strip {
+background: var(--slate-900);
+color: var(--white);
+}
+
+.problem-strip .section-head h2 {
+color: var(--white);
+}
+
+.problem-strip .section-head p {
+color: var(--slate-300);
+}
+
+.problem-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+}
+
+.problem-card {
+background: rgba(255, 255, 255, 0.04);
+border: 1px solid rgba(255, 255, 255, 0.08);
+border-radius: var(--radius-md);
+padding: 28px 24px;
+}
+
+.problem-card .tag {
+font-size: 11px;
+font-weight: 800;
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #fca5a5;
+margin-bottom: 12px;
+display: block;
+}
+
+.problem-card h3 {
+color: var(--white);
+font-size: 17px;
+font-weight: 700;
+margin-bottom: 10px;
+}
+
+.problem-card p {
+color: var(--slate-300);
+font-size: 14px;
+}
+
+.problem-card .arrow {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-top: 16px;
+font-size: 13px;
+font-weight: 700;
+color: var(--emerald-400, #34d399);
+}
+
+.problem-card .arrow svg {
+width: 16px;
+height: 16px;
+}
+
+/* ---------- Features grid ---------- */
+.features-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 20px;
+}
+
+.feature-card {
+border: 1px solid var(--slate-100);
+border-radius: var(--radius-md);
+padding: 26px 22px;
+background: var(--white);
+transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.feature-card:hover {
+transform: translateY(-4px);
+box-shadow: var(--shadow-tight);
+border-color: var(--slate-200);
+}
+
+.feature-icon {
+width: 46px;
+height: 46px;
+border-radius: 13px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 16px;
+color: var(--white);
+}
+
+.feature-icon svg {
+width: 22px;
+height: 22px;
+}
+
+.feature-card h3 {
+font-size: 15.5px;
+font-weight: 700;
+margin-bottom: 8px;
+}
+
+.feature-card p {
+font-size: 13.5px;
+color: var(--slate-500);
+}
+
+.icon-emerald {
+background: linear-gradient(140deg, var(--emerald-500), var(--emerald-600));
+}
+
+.icon-indigo {
+background: linear-gradient(140deg, var(--indigo-600), #4f46e5);
+}
+
+.icon-violet {
+background: linear-gradient(140deg, var(--violet-600), #6d28d9);
+}
+
+.icon-amber {
+background: linear-gradient(140deg, #fbbf24, var(--amber-500));
+}
+
+.icon-rose {
+background: linear-gradient(140deg, #fb7185, var(--rose-500));
+}
+
+.icon-slate {
+background: linear-gradient(140deg, #334155, var(--slate-900));
+}
+
+/* ---------- Why section ---------- */
+.why-section {
+background: var(--slate-50);
+}
+
+.why-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 22px;
+}
+
+.why-card {
+background: var(--white);
+border: 1px solid var(--slate-100);
+border-radius: var(--radius-md);
+padding: 26px 22px;
+box-shadow: var(--shadow-tight);
+}
+
+.why-card .num {
+font-family: var(--font-display);
+font-weight: 900;
+font-size: 13px;
+color: var(--white);
+background: linear-gradient(140deg, var(--emerald-500), var(--indigo-600));
+width: 32px;
+height: 32px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 16px;
+}
+
+.why-card h3 {
+font-size: 15.5px;
+font-weight: 700;
+margin-bottom: 8px;
+}
+
+.why-card p {
+font-size: 13.5px;
+color: var(--slate-500);
+}
+
+/* ---------- CTA band ---------- */
+.cta-band {
+background: linear-gradient(115deg, var(--slate-900) 0%, #1e1b4b 55%, #312e81 100%);
+border-radius: 28px;
+padding: 64px 48px;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.cta-band::before {
+content: '';
+position: absolute;
+inset: 0;
+background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.25), transparent 45%),
+radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.3), transparent 45%);
+}
+
+.cta-band>* {
+position: relative;
+z-index: 1;
+}
+
+.cta-band h2 {
+color: var(--white);
+font-size: clamp(24px, 3.4vw, 34px);
+margin-bottom: 14px;
+}
+
+.cta-band p {
+color: var(--slate-300);
+max-width: 520px;
+margin: 0 auto 30px;
+font-size: 15.5px;
+}
+
+.cta-actions {
+display: flex;
+flex-wrap: wrap;
+gap: 14px;
+justify-content: center;
+}
+
+.cta-band .btn-outline {
+background: transparent;
+color: var(--white);
+border-color: rgba(255, 255, 255, 0.25);
+}
+
+.cta-band .btn-outline:hover {
+border-color: var(--white);
+}
+
+.cta-contact-note {
+margin-top: 22px;
+font-size: 13px;
+color: var(--slate-400, #94a3b8);
+}
+
+.cta-contact-note a {
+text-decoration: underline;
+text-underline-offset: 3px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+border-top: 1px solid var(--slate-100);
+padding: 48px 0 32px;
+}
+
+.footer-top {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 32px;
+margin-bottom: 32px;
+}
+
+.footer-brand .brand {
+margin-bottom: 10px;
+}
+
+.footer-brand p {
+font-size: 13.5px;
+color: var(--slate-500);
+max-width: 320px;
+}
+
+.footer-links {
+display: flex;
+gap: 56px;
+flex-wrap: wrap;
+}
+
+.footer-col h4 {
+font-size: 12px;
+font-weight: 800;
+letter-spacing: .08em;
+text-transform: uppercase;
+color: var(--slate-900);
+margin-bottom: 14px;
+}
+
+.footer-col a {
+display: block;
+font-size: 13.5px;
+color: var(--slate-500);
+margin-bottom: 10px;
+transition: color .15s ease;
+}
+
+.footer-col a:hover {
+color: var(--emerald-600);
+}
+
+.footer-bottom {
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
+padding-top: 24px;
+border-top: 1px solid var(--slate-100);
+font-size: 12.5px;
+color: var(--slate-500);
+}
+
+.footer-bottom .credit {
+font-weight: 600;
+color: var(--slate-700);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+.hero-grid {
+grid-template-columns: 1fr;
+}
+
+.hero-visual {
+order: -1;
+}
+
+.mock-window {
+transform: none;
+max-width: 460px;
+margin: 0 auto;
+}
+
+.features-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+
+.why-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+
+.problem-grid {
+grid-template-columns: 1fr;
+}
+}
+
+@media (max-width: 760px) {
+.container {
+padding: 0 18px;
+}
+
+.nav-inner {
+min-height: 64px;
+padding: 6px 0;
+}
+
+.company-logo {
+width: 124px;
+}
+
+.nav-links {
+display: none;
+}
+
+.nav-actions .btn {
+display: none;
+}
+
+.hamburger {
+display: flex;
+}
+
+.hero {
+padding: 36px 0 56px;
+}
+
+.hero-visual {
+order: 0;
+}
+
+.hero-grid {
+gap: 36px;
+}
+
+.hero h1 {
+font-size: clamp(30px, 8vw, 38px);
+margin: 16px 0 18px;
+}
+
+.hero p.lead {
+font-size: 15px;
+margin-bottom: 24px;
+}
+
+section {
+padding: 64px 0;
+}
+
+.cta-band {
+padding: 44px 24px;
+border-radius: 22px;
+}
+
+.footer-top {
+flex-direction: column;
+}
+
+.footer-links {
+gap: 32px;
+}
+}
+
+@media (max-width: 560px) {
+.features-grid {
+grid-template-columns: 1fr;
+}
+
+.why-grid {
+grid-template-columns: 1fr;
+}
+
+.mock-stats {
+grid-template-columns: 1fr 1fr 1fr;
+gap: 8px;
+}
+
+.mock-stat {
+padding: 10px 8px;
+}
+
+.mock-stat .mock-value {
+font-size: 14px;
+}
+
+.hero-ctas .btn {
+width: 100%;
+}
+
+.hero-ctas {
+flex-direction: column;
+gap: 10px;
+}
+
+.mock-window {
+border-radius: 16px;
+}
+}
 </style>
 </head>
+
 <body>
 
 <!-- ============ NAV ============ -->
 <header>
-  <div class="container nav-inner">
-    <a href="#top" class="brand">
-      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
-        <defs>
-          <linearGradient id="navGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#6366f1"/>
-            <stop offset="100%" stop-color="#7c3aed"/>
-          </linearGradient>
-        </defs>
-        <rect width="64" height="64" rx="16" fill="url(#navGrad)"/>
-        <rect x="16" y="38" width="32" height="8" fill="#fff"/>
-        <path d="M22 38c0-6.5 4-12 10-12s10 5.5 10 12" fill="#fff"/>
-        <rect x="45" y="20" width="5" height="18" fill="#fff"/>
-        <path d="M44.3 20a3.2 3.2 0 0 1 6.4 0z" fill="#fff"/>
-        <rect x="46.9" y="14" width="1.2" height="6" fill="#fff"/>
-        <rect x="14" y="46" width="36" height="4" fill="#fff"/>
-      </svg>
-      Jamaath Care
-    </a>
+<div class="container nav-inner">
+<a href="#top" class="brand company-brand" aria-label="ShazaanSoft home">
+<img src="logo/shazaansoft-logo-white-exact.svg" alt="ShazaanSoft logo" class="company-logo" />
+</a>
 
-    <nav class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#why">Why Jamaath Care</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<nav class="nav-links">
+<a href="#features">Features</a>
+<a href="#why">Why Jamaath Care</a>
+<a href="#contact">Contact</a>
+</nav>
 
-    <div class="nav-actions">
-      <a class="btn btn-primary btn-sm" href="https://wa.me/919740620909?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Jamaath%20Care" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 0 0 4.84 1.23h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.83 14.24c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.29-3.44-.72-2.9-1.22-4.77-4.16-4.92-4.35-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.83 2 .9 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.64-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.7-.17 1.38Z"/></svg>
-        WhatsApp Us
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
+<div class="nav-actions">
+<a class="btn btn-primary btn-sm"
+href="https://wa.me/919740620909?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Jamaath%20Care"
+target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+<path
+d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 0 0 4.84 1.23h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.83 14.24c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.29-3.44-.72-2.9-1.22-4.77-4.16-4.92-4.35-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.83 2 .9 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.64-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.7-.17 1.38Z" />
+</svg>
+WhatsApp Us
+</a>
+<button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
 
-  <nav class="mobile-panel" id="mobilePanel">
-    <a href="#features">Features</a>
-    <a href="#why">Why Jamaath Care</a>
-    <a href="#contact">Contact</a>
-    <a class="btn btn-primary" href="https://wa.me/919740620909?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Jamaath%20Care" target="_blank" rel="noopener">Chat on WhatsApp</a>
-  </nav>
+<nav class="mobile-panel" id="mobilePanel">
+<a href="#features">Features</a>
+<a href="#why">Why Jamaath Care</a>
+<a href="#contact">Contact</a>
+<a class="btn btn-primary"
+href="https://wa.me/919740620909?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Jamaath%20Care"
+target="_blank" rel="noopener">Chat on WhatsApp</a>
+</nav>
 </header>
 
 <!-- ============ HERO ============ -->
 <div id="top"></div>
 <section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">For Mosque &amp; Jamaath Committees</span>
-      <h1>One digital home for your Jamaath — <span class="grad-text">Finance, Madarasa &amp; Community</span>, all in one place.</h1>
-      <p class="lead">Jamaath Care replaces scattered registers and spreadsheets with a single, secure system for donations, madarasa students, rental assets, family records and community events — built to run entirely on your own device.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://wa.me/919740620909?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Jamaath%20Care" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 0 0 4.84 1.23h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.83 14.24c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.29-3.44-.72-2.9-1.22-4.77-4.16-4.92-4.35-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.83 2 .9 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.64-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.7-.17 1.38Z"/></svg>
-          Chat on WhatsApp
-        </a>
-        <a class="btn btn-outline" href="#features">
-          See what's inside
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-      </div>
-      <div class="hero-note">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
-        Runs on your own device — your Jamaath's records stay private and under your control.
-      </div>
-    </div>
+<div class="container hero-grid">
+<div>
+<span class="eyebrow">For Mosque &amp; Jamaath Committees</span>
+<p class="product-byline">Jamaath Care by ShazaanSoft</p>
+<h1>One digital home for your Jamaath — <span class="grad-text">Finance, Madrasa &amp; Community</span>, all in
+one place.</h1>
+<p class="lead">Jamaath Care replaces scattered registers and spreadsheets with a single, secure system for
+donations, Madrasa students, rental assets, family records and community events — built to run entirely on
+your own device.</p>
+<div class="hero-ctas">
+<a class="btn btn-primary"
+href="https://wa.me/919740620909?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Jamaath%20Care"
+target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+<path
+d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 0 0 4.84 1.23h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.83 14.24c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.29-3.44-.72-2.9-1.22-4.77-4.16-4.92-4.35-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.83 2 .9 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.64-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.7-.17 1.38Z" />
+</svg>
+Chat on WhatsApp
+</a>
+<a class="btn btn-outline" href="#features">
+See what's inside
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+stroke-linejoin="round" aria-hidden="true">
+<path d="M5 12h14" />
+<path d="m12 5 7 7-7 7" />
+</svg>
+</a>
+</div>
+<div class="hero-note">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+stroke-linejoin="round" aria-hidden="true">
+<path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z" />
+<path d="m9 12 2 2 4-4" />
+</svg>
+Runs on your own device — your Jamaath's records stay private and under your control.
+</div>
+</div>
 
-    <div class="hero-visual">
-      <div class="mock-window">
-        <div class="mock-topbar"><span></span><span></span><span></span></div>
-        <div class="mock-body">
-          <div class="mock-stats">
-            <div class="mock-stat accent-emerald"><span class="mock-label">Donations</span><span class="mock-value">₹48,200</span></div>
-            <div class="mock-stat accent-indigo"><span class="mock-label">Students</span><span class="mock-value">312</span></div>
-            <div class="mock-stat"><span class="mock-label">Rentals</span><span class="mock-value">9 Active</span></div>
-          </div>
-          <div class="mock-chart" aria-hidden="true">
-            <span style="height:42%"></span>
-            <span style="height:72%"></span>
-            <span style="height:55%"></span>
-            <span style="height:90%"></span>
-            <span style="height:64%"></span>
-            <span style="height:80%"></span>
-            <span style="height:48%"></span>
-          </div>
-          <div class="mock-rows">
-            <div class="mock-row"><span>Monthly Contribution — Rahman Family</span><span class="pill pill-paid">Paid</span></div>
-            <div class="mock-row"><span>Madarasa Fee — Batch 2026</span><span class="pill pill-pending">Pending</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="hero-visual">
+<div class="mock-window">
+<div class="mock-topbar"><span></span><span></span><span></span></div>
+<div class="mock-body">
+<div class="mock-stats">
+<div class="mock-stat accent-emerald"><span class="mock-label">Donations</span><span
+class="mock-value">₹48,200</span></div>
+<div class="mock-stat accent-indigo"><span class="mock-label">Students</span><span
+class="mock-value">312</span></div>
+<div class="mock-stat"><span class="mock-label">Rentals</span><span class="mock-value">9 Active</span>
+</div>
+</div>
+<div class="mock-chart" aria-hidden="true">
+<span style="height:42%"></span>
+<span style="height:72%"></span>
+<span style="height:55%"></span>
+<span style="height:90%"></span>
+<span style="height:64%"></span>
+<span style="height:80%"></span>
+<span style="height:48%"></span>
+</div>
+<div class="mock-rows">
+<div class="mock-row"><span>Monthly Contribution — Rahman Family</span><span
+class="pill pill-paid">Paid</span></div>
+<div class="mock-row"><span>Madrasa Fee — Batch 2026</span><span class="pill pill-pending">Pending</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- ============ PROBLEM / SOLUTION ============ -->
 <section class="problem-strip">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" style="background:rgba(16,185,129,0.12);border-color:rgba(16,185,129,0.25);color:#34d399;">The Problem</span>
-      <h2>Running a Jamaath shouldn't mean chasing paper.</h2>
-      <p>Most committees still juggle registers, WhatsApp messages and spreadsheets to keep track of what matters most.</p>
-    </div>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <span class="tag">Before</span>
-        <h3>Registers get lost or damaged</h3>
-        <p>Years of donation and member records live in physical books — one flood or misplaced ledger, and history is gone.</p>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          Jamaath Care keeps everything backed up on your device
-        </div>
-      </div>
-      <div class="problem-card">
-        <span class="tag">Before</span>
-        <h3>Dues go untracked</h3>
-        <p>Nobody notices who's behind on monthly contributions or madarasa fees until it's become a bigger problem.</p>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          Automatic WhatsApp reminders for pending dues
-        </div>
-      </div>
-      <div class="problem-card">
-        <span class="tag">Before</span>
-        <h3>No one has the full picture</h3>
-        <p>Finances, students, assets and family records live in separate notebooks — nobody can see it all together.</p>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          One system, every record, always up to date
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="section-head">
+<span class="eyebrow"
+style="background:rgba(16,185,129,0.12);border-color:rgba(16,185,129,0.25);color:#34d399;">The Problem</span>
+<h2>Running a Jamaath shouldn't mean chasing paper.</h2>
+<p>Most committees still juggle registers, WhatsApp messages and spreadsheets to keep track of what matters
+most.</p>
+</div>
+<div class="problem-grid">
+<div class="problem-card">
+<span class="tag">Before</span>
+<h3>Registers get lost or damaged</h3>
+<p>Years of donation and member records live in physical books — one flood or misplaced ledger, and history is
+gone.</p>
+<div class="arrow">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M5 12h14" />
+<path d="m12 5 7 7-7 7" />
+</svg>
+Jamaath Care keeps everything backed up on your device
+</div>
+</div>
+<div class="problem-card">
+<span class="tag">Before</span>
+<h3>Dues go untracked</h3>
+<p>Nobody notices who's behind on monthly contributions or Madrasa fees until it's become a bigger problem.
+</p>
+<div class="arrow">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M5 12h14" />
+<path d="m12 5 7 7-7 7" />
+</svg>
+Automatic WhatsApp reminders for pending dues
+</div>
+</div>
+<div class="problem-card">
+<span class="tag">Before</span>
+<h3>No one has the full picture</h3>
+<p>Finances, students, assets and family records live in separate notebooks — nobody can see it all together.
+</p>
+<div class="arrow">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M5 12h14" />
+<path d="m12 5 7 7-7 7" />
+</svg>
+One system, every record, always up to date
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- ============ FEATURES ============ -->
 <section id="features">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">What's Inside</span>
-      <h2>Everything your committee needs, in one app.</h2>
-      <p>Eight connected modules covering the full life of your Jamaath — no more switching between tools.</p>
-    </div>
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">What's Inside</span>
+<h2>Everything your committee needs, in one app.</h2>
+<p>Eight connected modules covering the full life of your Jamaath — no more switching between tools.</p>
+</div>
 
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon icon-emerald">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1h1a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/><path d="M16 13h.01"/></svg>
-        </div>
-        <h3>Financial Management</h3>
-        <p>Donations, monthly contributions, event collections and full ledgers — with automatic WhatsApp payment reminders.</p>
-      </div>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon icon-emerald">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M3 7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1h1a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" />
+<path d="M16 13h.01" />
+</svg>
+</div>
+<h3>Financial Management</h3>
+<p>Donations, monthly contributions, event collections and full ledgers — with automatic WhatsApp payment
+reminders.</p>
+</div>
 
-      <div class="feature-card">
-        <div class="feature-icon icon-indigo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/><path d="M22 8v6"/></svg>
-        </div>
-        <h3>Madarasa Management</h3>
-        <p>Admissions, attendance, exams, timetables and awards for your Islamic school, in one system.</p>
-      </div>
+<div class="feature-card">
+<div class="feature-icon icon-indigo">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M12 3 2 8l10 5 10-5-10-5Z" />
+<path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5" />
+<path d="M22 8v6" />
+</svg>
+</div>
+<h3>Madrasa Management</h3>
+<p>Admissions, attendance, exams, timetables and awards for your Islamic school, in one system.</p>
+</div>
 
-      <div class="feature-card">
-        <div class="feature-icon icon-violet">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="9" height="18" rx="1"/><path d="M13 21V7h7v14"/><path d="M7 7h1M7 11h1M7 15h1"/></svg>
-        </div>
-        <h3>Asset &amp; Rental Management</h3>
-        <p>Track properties, rentals, leases and daily bookings, with security deposits and billing handled automatically.</p>
-      </div>
+<div class="feature-card">
+<div class="feature-icon icon-violet">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+stroke-linejoin="round">
+<rect x="4" y="3" width="9" height="18" rx="1" />
+<path d="M13 21V7h7v14" />
+<path d="M7 7h1M7 11h1M7 15h1" />
+</svg>
+</div>
+<h3>Asset &amp; Rental Management</h3>
+<p>Track properties, rentals, leases and daily bookings, with security deposits and billing handled
+automatically.</p>
+</div>
 
-      <div class="feature-card">
-        <div class="feature-icon icon-amber">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Family &amp; Member Records</h3>
-        <p>A living family tree with documents, welfare history and benefit tracking, always kept up to date.</p>
-      </div>
+<div class="feature-card">
+<div class="feature-icon icon-amber">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+<circle cx="9" cy="7" r="4" />
+<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+</svg>
+</div>
+<h3>Family &amp; Member Records</h3>
+<p>A living family tree with documents, welfare history and benefit tracking, always kept up to date.</p>
+</div>
 
-      <div class="feature-card">
-        <div class="feature-icon icon-rose">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 5H4a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4"/><path d="M17 5h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4"/></svg>
-        </div>
-        <h3>Events &amp; Cultural Programs</h3>
-        <p>Run competitions with tiers, teams and scoring, and generate results and reports instantly.</p>
-      </div>
+<div class="feature-card">
+<div class="feature-icon icon-rose">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M8 21h8" />
+<path d="M12 17v4" />
+<path d="M7 4h10v5a5 5 0 0 1-10 0V4Z" />
+<path d="M7 5H4a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4" />
+<path d="M17 5h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4" />
+</svg>
+</div>
+<h3>Events &amp; Cultural Programs</h3>
+<p>Run competitions with tiers, teams and scoring, and generate results and reports instantly.</p>
+</div>
 
-      <div class="feature-card">
-        <div class="feature-icon icon-slate">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M6 16c0-1.7 1.3-3 3-3s3 1.3 3 3"/><path d="M14 9h4"/><path d="M14 13h4"/></svg>
-        </div>
-        <h3>Staff &amp; Payroll</h3>
-        <p>Salaries, attendance and pay slips for your committee's staff, without spreadsheets.</p>
-      </div>
+<div class="feature-card">
+<div class="feature-icon icon-slate">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+stroke-linejoin="round">
+<rect x="4" y="4" width="16" height="16" rx="2" />
+<circle cx="9" cy="10" r="2" />
+<path d="M6 16c0-1.7 1.3-3 3-3s3 1.3 3 3" />
+<path d="M14 9h4" />
+<path d="M14 13h4" />
+</svg>
+</div>
+<h3>Staff &amp; Payroll</h3>
+<p>Salaries, attendance and pay slips for your committee's staff, without spreadsheets.</p>
+</div>
 
-      <div class="feature-card">
-        <div class="feature-icon icon-emerald">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="4" y="9" width="16" height="8" rx="1"/><path d="M6 17v4h12v-4"/><path d="M8 13h.01M12 13h4"/></svg>
-        </div>
-        <h3>WhatsApp &amp; Receipt Printing</h3>
-        <p>Send reminders and receipts straight from the app — digitally over WhatsApp, or on a thermal printer.</p>
-      </div>
+<div class="feature-card">
+<div class="feature-icon icon-emerald">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M6 9V3h12v6" />
+<rect x="4" y="9" width="16" height="8" rx="1" />
+<path d="M6 17v4h12v-4" />
+<path d="M8 13h.01M12 13h4" />
+</svg>
+</div>
+<h3>WhatsApp &amp; Receipt Printing</h3>
+<p>Send reminders and receipts straight from the app — digitally over WhatsApp, or on a thermal printer.</p>
+</div>
 
-      <div class="feature-card">
-        <div class="feature-icon icon-indigo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
-        </div>
-        <h3>Built to Run Offline</h3>
-        <p>A private, on-device system — no dependency on constant internet — with a full audit trail of every change.</p>
-      </div>
-    </div>
-  </div>
+<div class="feature-card">
+<div class="feature-icon icon-indigo">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+stroke-linejoin="round">
+<path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z" />
+<path d="m9 12 2 2 4-4" />
+</svg>
+</div>
+<h3>Built to Run Offline</h3>
+<p>A private, on-device system — no dependency on constant internet — with a full audit trail of every change.
+</p>
+</div>
+</div>
+</div>
 </section>
 
 <!-- ============ WHY ============ -->
 <section class="why-section" id="why">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Why Jamaath Care</span>
-      <h2>Built specifically for how a Jamaath actually runs.</h2>
-      <p>Not a generic business tool bent into shape — a system designed around committee life from day one.</p>
-    </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="num">01</div>
-        <h3>Truly all-in-one</h3>
-        <p>Finance, madarasa, assets, family records and events — one app instead of five different registers or tools.</p>
-      </div>
-      <div class="why-card">
-        <div class="num">02</div>
-        <h3>Your data stays yours</h3>
-        <p>Jamaath Care runs on your own device, so sensitive community and financial data never has to leave your hands.</p>
-      </div>
-      <div class="why-card">
-        <div class="num">03</div>
-        <h3>Purpose-built for Jamaaths</h3>
-        <p>Every module — from madarasa grades to Vanthige collections — is modelled on how committees actually work.</p>
-      </div>
-      <div class="why-card">
-        <div class="num">04</div>
-        <h3>Built around your committee's roles</h3>
-        <p>Every entry is traceable to who recorded it — so your Treasurer, President and Secretary always know exactly what's been logged, without a separate approval workflow to manage.</p>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Why Jamaath Care</span>
+<h2>Built specifically for how a Jamaath actually runs.</h2>
+<p>Not a generic business tool bent into shape — a system designed around committee life from day one.</p>
+</div>
+<div class="why-grid">
+<div class="why-card">
+<div class="num">01</div>
+<h3>Truly all-in-one</h3>
+<p>Finance, Madrasa, assets, family records and events — one app instead of five different registers or
+tools.</p>
+</div>
+<div class="why-card">
+<div class="num">02</div>
+<h3>Your data stays yours</h3>
+<p>Jamaath Care runs on your own device, so sensitive community and financial data never has to leave your
+hands.</p>
+</div>
+<div class="why-card">
+<div class="num">03</div>
+<h3>Purpose-built for Jamaaths</h3>
+<p>Every module — from Madrasa grades to Vanthige collections — is modelled on how committees actually work.
+</p>
+</div>
+<div class="why-card">
+<div class="num">04</div>
+<h3>Built around your committee's roles</h3>
+<p>Every entry is traceable to who recorded it — so your Treasurer, President and Secretary always know
+exactly what's been logged, without a separate approval workflow to manage.</p>
+</div>
+</div>
+</div>
 </section>
 
 <!-- ============ CTA ============ -->
 <section id="contact">
-  <div class="container">
-    <div class="cta-band">
-      <h2>Ready to bring your Jamaath's records into one place?</h2>
-      <p>Tell us about your committee and we'll walk you through how Jamaath Care can work for you.</p>
-      <div class="cta-actions">
-        <a class="btn btn-primary" href="https://wa.me/919740620909?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Jamaath%20Care" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 0 0 4.84 1.23h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.83 14.24c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.29-3.44-.72-2.9-1.22-4.77-4.16-4.92-4.35-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.83 2 .9 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.64-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.7-.17 1.38Z"/></svg>
-          Chat on WhatsApp
-        </a>
-        <a class="btn btn-outline" href="mailto:shareef@shazaansoft.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
-          Email Us
-        </a>
-      </div>
-      <!-- TODO: replace shareef@shazaansoft.com above with the real contact email before publishing -->
-      <p class="cta-contact-note">Or call / WhatsApp us directly at <a href="https://wa.me/919740620909" target="_blank" rel="noopener">+91 97406 20909</a></p>
-    </div>
-  </div>
+<div class="container">
+<div class="cta-band">
+<h2>Ready to bring your Jamaath's records into one place?</h2>
+<p>Tell us about your committee and we'll walk you through how Jamaath Care can work for you.</p>
+<div class="cta-actions">
+<a class="btn btn-primary"
+href="https://wa.me/919740620909?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Jamaath%20Care"
+target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+<path
+d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 0 0 4.84 1.23h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.83 14.24c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.29-3.44-.72-2.9-1.22-4.77-4.16-4.92-4.35-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.83 2 .9 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.38-.24.64-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.7-.17 1.38Z" />
+</svg>
+Chat on WhatsApp
+</a>
+<a class="btn btn-outline" href="mailto:shareef@shazaansoft.com">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+stroke-linejoin="round" aria-hidden="true">
+<rect x="2" y="4" width="20" height="16" rx="2" />
+<path d="m22 6-10 7L2 6" />
+</svg>
+Email Us
+</a>
+</div>
+<!-- TODO: replace shareef@shazaansoft.com above with the real contact email before publishing -->
+<p class="cta-contact-note">Or call / WhatsApp us directly at <a href="https://wa.me/919740620909"
+target="_blank" rel="noopener">+91 97406 20909</a></p>
+</div>
+</div>
 </section>
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#top" class="brand">
-          <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
-            <rect width="64" height="64" rx="16" fill="url(#navGrad)"/>
-            <rect x="16" y="38" width="32" height="8" fill="#fff"/>
-            <path d="M22 38c0-6.5 4-12 10-12s10 5.5 10 12" fill="#fff"/>
-            <rect x="45" y="20" width="5" height="18" fill="#fff"/>
-            <path d="M44.3 20a3.2 3.2 0 0 1 6.4 0z" fill="#fff"/>
-            <rect x="46.9" y="14" width="1.2" height="6" fill="#fff"/>
-            <rect x="14" y="46" width="36" height="4" fill="#fff"/>
-          </svg>
-          Jamaath Care
-        </a>
-        <p>One digital solution for your Jamaath — finance, madarasa, assets and community, all in one secure app.</p>
-      </div>
+<div class="container">
+<div class="footer-top">
+<div class="footer-brand">
+<a href="#top" class="brand company-brand" aria-label="ShazaanSoft home">
+<img src="logo/shazaansoft-logo-white-exact.svg" alt="ShazaanSoft logo" class="company-logo" />
+</a>
+<p>ShazaanSoft brings you Jamaath Care — one digital solution for finance, education, assets and community management.</p>
+</div>
 
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Product</h4>
-          <a href="#features">Features</a>
-          <a href="#why">Why Jamaath Care</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4>Get in touch</h4>
-          <a href="https://wa.me/919740620909" target="_blank" rel="noopener">WhatsApp: +91 97406 20909</a>
-          <a href="mailto:shareef@shazaansoft.com">shareef@shazaansoft.com</a>
-        </div>
-      </div>
-    </div>
+<div class="footer-links">
+<div class="footer-col">
+<h4>Product</h4>
+<a href="#features">Features</a>
+<a href="#why">Why Jamaath Care</a>
+<a href="#contact">Contact</a>
+</div>
+<div class="footer-col">
+<h4>Get in touch</h4>
+<a href="https://wa.me/919740620909" target="_blank" rel="noopener">WhatsApp: +91 97406 20909</a>
+<a href="mailto:shareef@shazaansoft.com">shareef@shazaansoft.com</a>
+</div>
+</div>
+</div>
 
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Jamaath Care. All rights reserved.</span>
-      <span class="credit">Developed by Shazaan Software Solutions</span>
-    </div>
-  </div>
+<div class="footer-bottom">
+<span>©️ <span id="year"></span> ShazaanSoft. All rights reserved.</span>
+<span class="credit">Product: Jamaath Care</span>
+</div>
+</div>
 </footer>
 
 <script>
-  // Mobile nav toggle
-  (function(){
-    var btn = document.getElementById('hamburger');
-    var panel = document.getElementById('mobilePanel');
-    if(!btn || !panel) return;
-    btn.addEventListener('click', function(){
-      var isOpen = panel.classList.toggle('open');
-      btn.classList.toggle('open', isOpen);
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-    panel.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
-        panel.classList.remove('open');
-        btn.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
-  })();
+// Mobile nav toggle
+(function () {
+var btn = document.getElementById('hamburger');
+var panel = document.getElementById('mobilePanel');
+if (!btn || !panel) return;
+btn.addEventListener('click', function () {
+var isOpen = panel.classList.toggle('open');
+btn.classList.toggle('open', isOpen);
+btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+panel.querySelectorAll('a').forEach(function (a) {
+a.addEventListener('click', function () {
+panel.classList.remove('open');
+btn.classList.remove('open');
+btn.setAttribute('aria-expanded', 'false');
+});
+});
+})();
 
-  // Footer year
-  document.getElementById('year').textContent = new Date().getFullYear();
+// Footer year
+document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
+
 </html>
